@@ -1,11 +1,14 @@
-# CSC490project
+# CSC490 Project
 
 ### Group Name: N/A
 
 ### Team member:
 Arthur Alexandro Soenarto
+
 x1
+
 x2
+
 x3
 
 ### Distribution of responsibilities in the group:
