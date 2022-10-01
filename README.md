@@ -5,7 +5,7 @@
 ### Team member:
 Arthur Alexandro Soenarto
 
-x1
+Gabriel El Haddad
 
 x2
 
