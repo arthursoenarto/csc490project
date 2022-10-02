@@ -9,7 +9,7 @@ Gabriel El Haddad
 
 Xiaoning Wang
 
-x3
+Syed Taha Ali
 
 ### Distribution of responsibilities in the group:
 
@@ -26,6 +26,7 @@ https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
 ### Reasons, why you decided for this specific dataset (longest section/paragraph of this report, one or two figures will be helpful):
 
 ### Who has started to access (download) the dataset?:
+Syed Taha Ali
 
 ### Who is setting up the source code repo?:
 Arthur
@@ -40,6 +41,6 @@ xx:
 xx:
 - yy
 
-xx:
+Syed Taha Ali:
 - yy
 
