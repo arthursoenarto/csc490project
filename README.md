@@ -7,7 +7,7 @@ Arthur Alexandro Soenarto
 
 Gabriel El Haddad
 
-x2
+Xiaoning Wang
 
 x3
 
