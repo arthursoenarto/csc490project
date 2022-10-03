@@ -28,7 +28,11 @@ https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
 
 ### Reasons, why you decided for this specific dataset (longest section/paragraph of this report, one or two figures will be helpful):
 
+#### Background:
 
+Skin Cancer is one of the most common cancers in North America. The most common cause is from overexposure to ultraviolet rays from the sun. It involves the growth of abnormal cells in the outermost skin layer (called the epidermis), which can form malignant tumors if not treated early. Since it grows in the outermost layer, this property makes skin cancer easily detectable and extremely relevant to camera based machine learning applications, which is the motivation for our project.
+
+[![Skin Cancer Imaging](link to image on GH)](https://images.everydayhealth.com/images/what-are-the-different-types-of-skin-cancer-722x406.jpg)
 
 ### Who has started to access (download) the dataset?:
 Syed Taha Ali
