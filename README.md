@@ -61,5 +61,7 @@ xx:
 - yy
 
 Syed Taha Ali:
-- yy
+- Created figures for Skin Lesion Localization in the dataset
+- Added reasons for choosing dataset
+- Described the problem we aim to solve with this project
 
