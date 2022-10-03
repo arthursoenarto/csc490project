@@ -34,6 +34,16 @@ Skin Cancer is one of the most common cancers in North America. The most common 
 
 ![Types of Skin Cancer](https://images.everydayhealth.com/images/what-are-the-different-types-of-skin-cancer-722x406.jpg)
 
+#### Dataset:
+
+The Skin Cancer MNIST: HAM10000 dataset contains dermatoscopic (examination of skin lesions) images from different populations. The final dataset consists of 10015 dermatoscopic images which can serve as a training set for academic machine learning purposes. 
+
+##### Variety:
+
+The most important reason we chose this dataset is because it contains variable data that is representative of the real world. For example, the dataset contains image samples from over 15 different locations across the patients bodies, image samples include both genders, and contain different skin shades. Having a dataset with various different types of samples is important because it will allow the model to generalize to the real world and prevent it from being biased towards a specific sample of the population.
+
+![Localization of Skin Lesions in dataset](https://i.imgur.com/BMfbUGT.png)
+
 ### Who has started to access (download) the dataset?:
 Syed Taha Ali
 
