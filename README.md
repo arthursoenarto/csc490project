@@ -21,8 +21,7 @@ Skin Cancer MNIST: HAM10000
 
 [Disease Classification based on Dermoscopic Skin Images Using Convolutional Neural Network in Teledermatology System](https://ieeexplore.ieee.org/abstract/document/8973303)
 
-[Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)]
-(https://arxiv.org/abs/1902.03368)
+[Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)](https://arxiv.org/abs/1902.03368)
 
 
 ### Location of the dataset: 
