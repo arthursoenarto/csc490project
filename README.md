@@ -56,8 +56,8 @@ Arthur
 Arthur:
 - Setting up source code repo
 
-xx:
-- yy
+Gabriel El Haddad:
+- Explain reasons for choosing dataset
 
 xx:
 - yy
