@@ -1,6 +1,6 @@
 # CSC490 Project
 
-### Group Name: N/A
+### Group Name: Team 8 - Skin Cancer Challengers
 
 ### Team member:
 Arthur Alexandro Soenarto
