@@ -11,6 +11,7 @@ import torchvision
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import time
 
 
 # code from my CSC311 Lab
@@ -43,6 +44,7 @@ def train(model,
     iters, losses, train_acc, val_acc = [], [], [], []
 
     n = 0 # tracks the number of iterations
+    start = time.time()
     while n < num_iter:
         for imgs, labels in iter(train_loader): # (imgs, labels) is a minibatch
             if n >= num_iter: 
@@ -69,19 +71,20 @@ def train(model,
 
             # Increment the iteration count
             n += 1
+            end = time.time()
+            print("iteration: " + str(n) + " , time elapsed: " + str((end - start)) + "sec")
 
     if plot:
         plt.title("Learning Curve")
         plt.plot(iters, losses, label="Train")
         plt.xlabel("Iterations")
         plt.ylabel("Loss") 
-        plt.savefig('./code/saved_models/learningcurveforunetsegGABE3.png')
+        plt.savefig('./code/saved_models/learningcurveforunetseg100/100.png')
 
     return losses[-1]
 
 
 if __name__ == "__main__":
-    import time
     start = time.time()
     transform = A.Compose(
         [
@@ -102,9 +105,9 @@ if __name__ == "__main__":
     training = Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task1_Training_GroundTruth", transformation=transform)
 
     model = model()
-    train(model, training, batch_size=1000, learning_rate=0.01, weight_decay=0.0, num_iter=1000, plot=True)
+    train(model, training, batch_size=100, learning_rate=0.01, weight_decay=0.0, num_iter=100, plot=True)
 
     torch.save(model.state_dict(), "./code/saved_models/seg_model.pth")
 
     end = time.time()
-    print(str((end - start)//60) + "MINS")
+    print(str((end - start)//60) + "MINS")     
