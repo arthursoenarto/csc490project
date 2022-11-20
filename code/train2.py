@@ -1,5 +1,6 @@
 from UNet import model 
 from Dataloaders import Segmentation_DataLoader
+from Dataloaders import Globules_Segmentation_DataLoader
 
 import matplotlib.pyplot as plt
 import torchvision.transforms.functional as TF
@@ -79,7 +80,7 @@ def train(model,
         plt.plot(iters, losses, label="Train")
         plt.xlabel("Iterations")
         plt.ylabel("Loss") 
-        plt.savefig('./code/saved_models/learningcurveforunetseg100x100.png')
+        plt.savefig('./code/saved_models/learningcurveforunetseg32x300.png')
 
     return losses[-1]
 
@@ -102,12 +103,15 @@ if __name__ == "__main__":
     )
 
     #load dataset
-    training = Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task1_Training_GroundTruth", transformation=transform)
+
+    # training = Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task1_Training_GroundTruth", transformation=transform)
+
+    training = Globules_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth_v3", transformation=transform)
 
     model = model()
-    train(model, training, batch_size=100, learning_rate=0.001, weight_decay=0.0, num_iter=100, plot=True)
+    train(model, training, batch_size=32, learning_rate=0.001, weight_decay=0.0, num_iter=300, plot=True)
 
-    torch.save(model.state_dict(), "./code/saved_models/seg_model100x100.pth")
+    torch.save(model.state_dict(), "./code/saved_models/globules_seg_model32x300.pth")
 
     end = time.time()
     print(str((end - start)//60) + "MINS")     
