@@ -1,6 +1,10 @@
 from UNet import model 
 from Dataloaders import Segmentation_DataLoader
 from Dataloaders import Globules_Segmentation_DataLoader
+from Dataloaders import Milia_Like_Cyst_Segmentation_DataLoader
+from Dataloaders import Negative_Network_Segmentation_DataLoader
+from Dataloaders import Pigment_Network_Segmentation_DataLoader
+from Dataloaders import Streaks_Segmentation_DataLoader
 
 import matplotlib.pyplot as plt
 import torchvision.transforms.functional as TF
@@ -79,8 +83,17 @@ def train(model,
         plt.title("Learning Curve")
         plt.plot(iters, losses, label="Train")
         plt.xlabel("Iterations")
-        plt.ylabel("Loss") 
-        plt.savefig('./code/saved_models/learningcurveforunetseg32x300.png')
+        plt.ylabel("Loss")
+
+        # save fig task 1
+        # plt.savefig('./code/saved_models/learningcurveforunetseg32x100.png')
+
+        # save fig task 2
+        # plt.savefig('./code/saved_models/learningcurveforunet_globules_seg32x100.png')
+        plt.savefig('./code/saved_models/learningcurveforunet_milia_like_cyst_seg32x100.png')
+        # plt.savefig('./code/saved_models/learningcurveforunet_negative_network_seg32x100.png')
+        # plt.savefig('./code/saved_models/learningcurveforunet_pigment_network_seg32x100.png')
+        # plt.savefig('./code/saved_models/learningcurveforunet_streaks_seg32x100.png')
 
     return losses[-1]
 
@@ -102,16 +115,28 @@ if __name__ == "__main__":
         ],
     )
 
-    #load dataset
-
+    #load dataset task 1
     # training = Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task1_Training_GroundTruth", transformation=transform)
 
-    training = Globules_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth_v3", transformation=transform)
+    # load dataset task 2
+    # training = Globules_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth", transformation=transform)
+    training = Milia_Like_Cyst_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth", transformation=transform)
+    # training = Negative_Network_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth", transformation=transform)
+    # training = Pigment_Network_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth", transformation=transform)
+    # training = Streaks_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Training_Input", "./data/ISIC2018_Task2_Training_GroundTruth", transformation=transform)
 
     model = model()
-    train(model, training, batch_size=32, learning_rate=0.001, weight_decay=0.0, num_iter=300, plot=True)
+    train(model, training, batch_size=32, learning_rate=0.001, weight_decay=0.0, num_iter=100, plot=True)
 
-    torch.save(model.state_dict(), "./code/saved_models/globules_seg_model32x300.pth")
+    # save model task 1
+    # torch.save(model.state_dict(), "./code/saved_models/seg_model32x100.pth")
+
+    # save model task 2
+    # torch.save(model.state_dict(), "./code/saved_models/globules_seg_model32x100.pth")
+    torch.save(model.state_dict(), "./code/saved_models/milia_like_cyst_seg_model32x100.pth")
+    # torch.save(model.state_dict(), "./code/saved_models/negative_network_seg_model32x100.pth")
+    # torch.save(model.state_dict(), "./code/saved_models/pigment_network_seg_model32x100.pth")
+    # torch.save(model.state_dict(), "./code/saved_models/streaks_seg_model32x100.pth")
 
     end = time.time()
-    print(str((end - start)//60) + "MINS")     
+    print(str((end - start)//60) + "MINS")
