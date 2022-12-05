@@ -242,3 +242,53 @@ class Streaks_Segmentation_DataLoader(Dataset):
             mask = augmentations["mask"]
 
         return image, mask
+
+# class Load_All_Segmentation_DataLoader(Dataset):
+    
+#     def __init__(self, image_dir, mask_dir, attribute_mask_dir, transformation=None):
+#         self.image_dir = image_dir
+#         self.mask_dir = mask_dir #task 1
+#         self.attribute_mask_dir = attribute_mask_dir #task 2
+#         self.transform = transformation
+#         self.images = os.listdir(image_dir)
+    
+#     def __len__(self):
+#         return len(self.images)
+
+#     def __getitem__(self, index):
+#         img_path = os.path.join(self.image_dir, self.images[index])
+#         mask_path = os.path.join(self.mask_dir, self.images[index].replace(".jpg", "_segmentation.png"))
+#         mask_globules_path = os.path.join(self.attribute_mask_dir, self.images[index].replace(".jpg", "_attribute_globules.png"))
+#         mask_milia_like_cyst_path = os.path.join(self.attribute_mask_dir, self.images[index].replace(".jpg", "_attribute_milia_like_cyst.png"))
+#         mask_negative_network = os.path.join(self.attribute_mask_dir, self.images[index].replace(".jpg", "_attribute_negative_network.png"))
+#         mask_pigment_network = os.path.join(self.attribute_mask_dir, self.images[index].replace(".jpg", "_attribute_pigment_network.png"))
+#         mask_streak_path = os.path.join(self.attribute_mask_dir, self.images[index].replace(".jpg", "_attribute_streaks.png"))
+
+
+#         # image = read_image(img_path)
+#         # mask = read_image(mask_path)
+#         image = np.array(Image.open(img_path).convert("RGB")) #input images are rgb
+#         mask = np.array(Image.open(mask_path).convert("L"), dtype=np.float32) #output masks are grayscale
+#         mask_globules = np.array(Image.open(mask_globules_path).convert("L"), dtype=np.float32) #output masks are grayscale
+#         mask_milia_like_cyst = np.array(Image.open(mask_milia_like_cyst_path).convert("L"), dtype=np.float32) #output masks are grayscale
+
+#         mask[mask == 255.0] = 1.0 # one hot vector
+#         mask_globules[mask_globules == 255.0] = 1.0
+
+#         print(image.shape)
+#         print(mask.shape)
+#         print(mask_globules.shape)
+ 
+#         if self.transform is not None:
+#             augmentations = self.transform(image=image, mask=mask)
+#             image = augmentations["image"]
+#             mask = augmentations["mask"]
+        
+#         image=mask_globules[:]
+#         mask_globules = self.transform(image=image)["image"]
+
+#         print(image.shape)
+#         print(mask.shape)
+#         print(mask_globules.shape)
+
+#         return image, mask, mask_globules, mask_milia_like_cyst
