@@ -60,10 +60,9 @@ class Classification_DataLoader(Dataset):
 
         # Get the path to the image
         img_path = os.path.join(self.img_dir, self.img_labels.iloc[idx, 0]) + ".jpg"
-        print(img_path)
 
         # Read the image into the torch.tensor() format
-        image = read_image(img_path)
+        image = torch.from_numpy(np.array(Image.open(img_path).convert("RGB")))
 
         # Convert the label to the tensor
         # First convert to the list then to the torch.tensor()

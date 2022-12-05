@@ -5,7 +5,6 @@ from Dataloaders import Milia_Like_Cyst_Segmentation_DataLoader
 from Dataloaders import Negative_Network_Segmentation_DataLoader
 from Dataloaders import Pigment_Network_Segmentation_DataLoader
 from Dataloaders import Streaks_Segmentation_DataLoader
-from Dataloaders import Load_All_Segmentation_DataLoader
 
 import matplotlib.pyplot as plt
 import torchvision.transforms.functional as TF
