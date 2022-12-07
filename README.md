@@ -1,69 +1,57 @@
-# CSC490 Project
+
+# CSC490 Medical Imaging Dataset Project
 
 ### Group Name: Team 8 - Skin Cancer Challengers
 
-### Team member:
-Arthur Alexandro Soenarto
+#### Team members:
 
-Gabriel El Haddad
+- Arthur Alexandro Soenarto
 
-Xiaoning Wang
+- Gabriel El Haddad
 
-Syed Taha Ali
+- Xiaoning Wang
 
-### Distribution of responsibilities in the group:
+- Syed Taha Ali
 
-### Name of dataset: 
+### Datasets: 
+- [Skin Cancer MNIST HAM10000](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
+- [2018 ISIC Challenge](https://challenge.isic-archive.com/data/#2018)
 
-Skin Cancer MNIST: HAM10000
+We choose the HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. It is also the dataset of the International Skin Imaging Collaboration (ISIC) 2018 challenge.
 
-### Paper reference(s):
+### Introduction:
 
-[Disease Classification based on Dermoscopic Skin Images Using Convolutional Neural Network in Teledermatology System](https://ieeexplore.ieee.org/abstract/document/8973303)
+This project is an application of different machine learning models that were used for attempting the 2018 ISIC Challenge. 
 
-[Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)](https://arxiv.org/abs/1902.03368)
+This challenge is broken into three separate tasks:
 
+- Task 1: Lesion Segmentation  
+- Task 2: Lesion Attribute Detection
+- Task 3: Disease Classification
 
-### Location of the dataset: 
+We decided to combine the tasks where the final goal was classification (task 3).
 
-https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
-
-#### Background:
+### Background:
 
 Skin Cancer is one of the most common cancers in North America. The most common cause is from overexposure to ultraviolet rays from the sun. It involves the growth of abnormal cells in the outermost skin layer (called the epidermis), which can form malignant tumors if not treated early. Since it grows in the outermost layer, this property makes skin cancer easily detectable and extremely relevant to camera based machine learning applications, which is the motivation for our project.
 
-![Types of Skin Cancer](https://i.imgur.com/f5WeaHz.png)
+### Challenge Workflow
 
-#### Dataset:
+Sequence diagram:
 
-The Skin Cancer MNIST: HAM10000 dataset contains dermatoscopic (examination of skin lesions) images from different populations. The final dataset consists of 10015 dermatoscopic images which can serve as a training set for academic machine learning purposes. 
+![](https://i.imgur.com/UcORHl1.png)
 
-### Reasons, why we chose this specific dataset:
 
-The final dataset consists of 10000 training images and consists of a collection of different skin cancers in the realm of pigment lesions. The dataset labels are very reliable as more than 50% of lesions are confirmed through histopathology. We are excited to use this dataset so we can combine the different skills we've discussed in class as far as segmentation, attribute detection, and disease classification.
+### Segmentation
 
-The most important reason we chose this dataset is because it contains variable data that is representative of the real world. For example, the dataset contains image samples from over 15 different locations across the patients bodies, image samples include both genders, and contain different skin shades. Having a dataset with various different types of samples is important because it will allow the model to generalize to the real world and prevent it from being biased towards a specific sample of the population.
 
-![Localization of Skin Lesions in dataset](https://i.imgur.com/BMfbUGT.png)
 
-### Who has started to access (download) the dataset?:
-Syed Taha Ali
 
-### Who is setting up the source code repo?:
-Arthur
 
-### Distribution of tasks for this report:
-Arthur:
-- Setting up source code repo
 
-Gabriel El Haddad:
-- Explain reasons for choosing dataset
 
-xx:
-- yy
 
-Syed Taha Ali:
-- Created figures for Skin Lesion Localization in the dataset
-- Added reasons for choosing dataset
-- Described the problem we aim to solve with this project
+
+
+
 
