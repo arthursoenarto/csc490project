@@ -30,6 +30,18 @@ cd into folder then,
 ```
 TODO
 
+#### How to run doubleunet/tripleunet:
+
+####Training (doubleunet_train.py):
+
+under main() at end of file:
+1. change the training images and ground truth file path based on directory structure
+2. change batch_sizes and iter_sizes based on what you want to train on
+3. change file path and name of where you want to store your pretrained models
+
+at the end of def train():
+1. under *if plot:*, change file path and name of where you want to store your loss curve
+
 ### Introduction:
 
 This project is an application of different machine learning models that were used for attempting the 2018 ISIC Challenge. 
