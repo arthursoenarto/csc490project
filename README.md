@@ -36,9 +36,7 @@ cd into folder then,
 ```bash
   $ ssh host@graham.computecanada.ca
   $ virtualenv -p `which python3.8` venv/
-  $ source venv/bin/activate
   $ pip install -r requirements.txt
-  $ deactivate # when done
   $ sbatch segtrainjob.sh # modify segtrainjob.sh with file u want to run
   $ squeue --user=csc490w -t RUNNING # status of running job
 ```
