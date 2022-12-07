@@ -75,8 +75,17 @@ Since the output images pixels are either 0's (if part of the background) or 1's
 - Intersection of the predicted lesion regions of the two models using logical and
 - Union of the prediction lesion regions using logical or
 
+We had greater validation accuracy with the union of the two masks, so we decided to use union for the Triple UNet.
+
 ![](https://i.imgur.com/OKcfb9V.png)
 
+#### Metrics
+
+| Segmentation Model  | Accuracy | Dice Score | IOU |
+| ------------- | ------------- |
+| UNet (batch=100, epoch=500)  | 0.8691 | 0.7835 | 0.6189 |
+| Double UNet (batch=64, epoch=50)  | 0.8590  | 0.7194 | 0.6020 |
+| Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
 
 
 
