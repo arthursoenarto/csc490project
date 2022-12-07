@@ -19,6 +19,52 @@
 
 We choose the HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. It is also the dataset of the International Skin Imaging Collaboration (ISIC) 2018 challenge.
 
+### Set up Instructions
+
+#### Run locally:
+
+cd into folder then,
+
+```bash
+  $ virtualenv -p `which python3.8` venv/
+  $ source venv/bin/activate
+  $ pip install -r requirements.txt
+  $ deactivate # when done
+```
+#### Run on Compute Canada vm:
+
+```bash
+  $ ssh host@graham.computecanada.ca
+  $ virtualenv -p `which python3.8` venv/
+  $ pip install -r requirements.txt
+  $ sbatch segtrainjob.sh # modify segtrainjob.sh with file u want to run
+  $ squeue --user=csc490w -t RUNNING # status of running job
+```
+
+#### How to run/test/debug doubleunet/tripleunet locally:
+
+#### Training (doubleunet_train.py):
+
+under main() at end of file:
+1. change the training images and ground truth file path based on directory structure
+2. change batch_sizes and iter_sizes based on what you want to train on
+3. change file path and name of where you want to store your pretrained models
+
+at the end of def train():
+1. under **if plot:**, change file path and name of where you want to store your loss curve
+
+#### Testing (doubleunet_test.py for DoubleUNet, tripleunet_test.py for TripleUNet)
+under main() at end of file:
+1. change the training images and ground truth file path based on directory structure
+2. change the validation images and ground truth file path based on directory structure
+3. change doubleunet_models and model.load_state_dict() in the for loop to point to where the pretrained doubleunet models are based on directury structure
+4. change unet_model_path to point to where the pretrained singleunet are based on directury structure
+5. under f = open(...) before the for loop: change file path and name to where you want to store your analysis.
+
+optional:
+1. you can skip step no.1 because training takes too long
+
+
 ### Introduction:
 
 This project is an application of different machine learning models that were used for attempting the 2018 ISIC Challenge. 
@@ -75,10 +121,27 @@ Since the output images pixels are either 0's (if part of the background) or 1's
 - Intersection of the predicted lesion regions of the two models using logical and
 - Union of the prediction lesion regions using logical or
 
+We had greater validation accuracy with the union of the two masks, so we decided to use union for the Triple UNet.
+
 ![](https://i.imgur.com/OKcfb9V.png)
 
+#### Metrics
+
+| Segmentation Model  | Accuracy | Dice Score | IOU |
+| ------------- | ------------- | ------------- | ------------- |
+| UNet (batch=100, epoch=500)  | 0.8691 | 0.7385 | 0.6189 |
+| Double UNet (batch=64, epoch=50)  | 0.8590  | 0.7194 | 0.6020 |
+| Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
+
+### Attribute Detection
 
 
+## Individual Contributions
+Arthur - Implemented and trained DoubleUNet, TripleUNet and organized the poster template
 
+Taha - Implemented and trained UNet, data augmentation, gathered metrics
 
+Gabriel - Attribute detection, data visualization
+
+Xiaoning - Implemented classification models
 
