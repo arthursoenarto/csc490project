@@ -1,0 +1,12 @@
+DoubleUNetSeg_32_iters_50model.pth
+validation:
+accuracy: tensor(0.8548), dice: tensor(0.7138), iou: tensor(0.5906)
+DoubleUNetSeg_32_iters_100model.pth
+validation:
+accuracy: tensor(0.8583), dice: tensor(0.7147), iou: tensor(0.5978)
+DoubleUNetSeg_64_iters_50model.pth
+validation:
+accuracy: tensor(0.8590), dice: tensor(0.7194), iou: tensor(0.6020)
+DoubleUNetSeg_64_iters_100model.pth
+validation:
+accuracy: tensor(0.8557), dice: tensor(0.7084), iou: tensor(0.5880)
