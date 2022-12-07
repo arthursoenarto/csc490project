@@ -36,9 +36,18 @@ cd into folder then,
 ```bash
   $ ssh host@graham.computecanada.ca
   $ virtualenv -p `which python3.8` venv/
+  $ source venv/bin/activate
   $ pip install -r requirements.txt
+  $ deactivate
   $ sbatch segtrainjob.sh # modify segtrainjob.sh with file u want to run
   $ squeue --user=csc490w -t RUNNING # status of running job
+```
+
+If some of the libraries do not install correctly, need to download them using their Compute Canada alias
+
+```bash
+  $ avail_wheels "*name*"  # some libraries have different versions for cpu & gpu
+  $ pip install <name> --no-index
 ```
 
 #### How to run/test/debug doubleunet/tripleunet locally:
@@ -71,7 +80,7 @@ This project is an application of different machine learning models that were us
 
 This challenge is broken into three separate tasks:
 
-- Task 1: Lesion Segmentation  
+- Task 1: Lesion Segmentation
 - Task 2: Lesion Attribute Detection
 - Task 3: Disease Classification
 
@@ -134,6 +143,18 @@ We had greater validation accuracy with the union of the two masks, so we decide
 | Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
 
 ### Attribute Detection
+
+The following dermoscopic attributes should be identified:
+
+- pigment network
+- negative network
+- streaks
+- milia-like cysts
+- globules (including dots)
+
+The input data are dermoscopic lesion images in JPEG format. All lesion images are named using the scheme ISIC_<image_id>.jpg, where <image_id>. The response data are binary mask images in PNG format, indicating the location of a dermoscopic attribute within each input lesion image. Mask images are named using the scheme ISIC_<image_id>_attribute_<attribute_name>.png, where <image_id> matches the corresponding lesion image for the mask and <attribute_name> identifies a dermoscopic attribute (pigment_network, negative_network, streaks, milia_like_cyst, and globules).
+
+Similarly to the segmentation data, the mask image ground truth pixels are either 0 (indicating areas where attribute is absent) and 255 (where the attribute is present).
 
 
 ## Individual Contributions
