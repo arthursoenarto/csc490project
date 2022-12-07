@@ -44,7 +44,17 @@ Sequence diagram:
 
 ### Segmentation
 
+Segmentation is the process of associating each pixel on an image with a class label,
+For task 1, our target label was the image mask of the skin lesion, so we had to perform
+binary segmentation.
 
+![](https://i.imgur.com/f8iz5Cm.png)
+
+We first implemented UNet, a convolutional network architecture for fast and precise segmentation of images. U-Net was developed for biomedical image segmentation at the Computer Science Department of the University of Freiburg. The network is a convolutional neural network.
+
+Model: 
+
+![](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/u-net-architecture.png)
 
 
 
