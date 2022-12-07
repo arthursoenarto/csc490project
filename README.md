@@ -102,8 +102,11 @@ We had greater validation accuracy with the union of the two masks, so we decide
 
 ### Individual Contributions
 Arthur - Implemented and trained DoubleUNet, TripleUNet and organized the poster template
+
 Taha - Implemented and trained UNet, data augmentation, gathered metrics
+
 Gabriel - Attribute detection, data visualization
+
 Xiaoning - Implemented classification models
 
 
