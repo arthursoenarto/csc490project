@@ -32,7 +32,7 @@ TODO
 
 #### How to run doubleunet/tripleunet:
 
-####Training (doubleunet_train.py):
+#### Training (doubleunet_train.py):
 
 under main() at end of file:
 1. change the training images and ground truth file path based on directory structure
@@ -40,7 +40,7 @@ under main() at end of file:
 3. change file path and name of where you want to store your pretrained models
 
 at the end of def train():
-1. under *if plot:*, change file path and name of where you want to store your loss curve
+1. under **if plot:**, change file path and name of where you want to store your loss curve
 
 ### Introduction:
 
