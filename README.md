@@ -26,21 +26,22 @@ We choose the HAM10000 dataset, a large collection of multi-source dermatoscopic
 cd into folder then,
 
 ```bash
+  $ virtualenv -p `which python3.8` venv/
+  $ source venv/bin/activate
   $ pip install -r requirements.txt
+  $ deactivate # when done
 ```
-TODO
+#### Run on Compute Canada vm:
 
-#### How to run doubleunet/tripleunet:
-
-#### Training (doubleunet_train.py):
-
-under main() at end of file:
-1. change the training images and ground truth file path based on directory structure
-2. change batch_sizes and iter_sizes based on what you want to train on
-3. change file path and name of where you want to store your pretrained models
-
-at the end of def train():
-1. under **if plot:**, change file path and name of where you want to store your loss curve
+```bash
+  $ ssh host@graham.computecanada.ca
+  $ virtualenv -p `which python3.8` venv/
+  $ source venv/bin/activate
+  $ pip install -r requirements.txt
+  $ deactivate # when done
+  $ sbatch segtrainjob.sh # modify segtrainjob.sh with file u want to run
+  $ squeue --user=csc490w -t RUNNING # status of running job
+```
 
 ### Introduction:
 
@@ -105,20 +106,13 @@ We had greater validation accuracy with the union of the two masks, so we decide
 #### Metrics
 
 | Segmentation Model  | Accuracy | Dice Score | IOU |
-| ------------- | ------------- | ------------- | ------------- | 
+| ------------- | ------------- | ------------- | ------------- |
 | UNet (batch=100, epoch=500)  | 0.8691 | 0.7385 | 0.6189 |
 | Double UNet (batch=64, epoch=50)  | 0.8590  | 0.7194 | 0.6020 |
 | Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
 
 ### Attribute Detection
 
-### Individual Contributions
-Arthur - Implemented and trained DoubleUNet, TripleUNet and organized the poster template
 
-Taha - Implemented and trained UNet, data augmentation, gathered metrics
-
-Gabriel - Attribute detection, data visualization
-
-Xiaoning - Implemented classification models
 
 
