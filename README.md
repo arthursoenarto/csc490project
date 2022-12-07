@@ -19,6 +19,17 @@
 
 We choose the HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. It is also the dataset of the International Skin Imaging Collaboration (ISIC) 2018 challenge.
 
+### Set up Instructions
+
+#### Run locally:
+
+cd into folder then,
+
+```bash
+  $ pip install -r requirements.txt
+```
+TODO
+
 ### Introduction:
 
 This project is an application of different machine learning models that were used for attempting the 2018 ISIC Challenge. 
@@ -82,11 +93,12 @@ We had greater validation accuracy with the union of the two masks, so we decide
 #### Metrics
 
 | Segmentation Model  | Accuracy | Dice Score | IOU |
-| ------------- | ------------- | ------------- | ------------- |
-| UNet (batch=100, epoch=500)  | 0.8691 | 0.7835 | 0.6189 |
+| ------------- | ------------- | ------------- | ------------- |  ------------- |
+| UNet (batch=100, epoch=500)  | 0.8691 | 0.7385 | 0.6189 |
 | Double UNet (batch=64, epoch=50)  | 0.8590  | 0.7194 | 0.6020 |
 | Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
 
+### Attribute Detection
 
 
 
