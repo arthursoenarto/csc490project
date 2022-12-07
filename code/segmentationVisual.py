@@ -18,6 +18,10 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 
+# Requirements: - have data loaded in the data folder
+#               - have trained segmentation models for the general mask and all 5 attributes in 2018 ISIC task 2
+
+
 if __name__ == "__main__":
     transform = A.Compose(
         [
@@ -35,8 +39,6 @@ if __name__ == "__main__":
     )
 
     #load dataset
-    # data = Load_All_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Validation_Input", "./data/ISIC2018_Task1_Validation_GroundTruth", "./data/ISIC2018_Task2_Validation_GroundTruth", transformation=transform)
-
     data = Segmentation_DataLoader("./data/ISIC2018_Task1-2_Validation_Input", "./data/ISIC2018_Task1_Validation_GroundTruth", transformation=transform)
     data1 = Globules_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Validation_Input", "./data/ISIC2018_Task2_Validation_GroundTruth", transformation=transform)
     data2 = Milia_Like_Cyst_Segmentation_DataLoader("./data/ISIC2018_Task1-2_Validation_Input", "./data/ISIC2018_Task2_Validation_GroundTruth", transformation=transform)
@@ -60,7 +62,8 @@ if __name__ == "__main__":
     model_pigment_network = model()
     model_streaks = model()
 
-    model_segmentation.load_state_dict(torch.load("./code/saved_models/seg_model16x2500.pth"))
+    # you would need to train these models
+    model_segmentation.load_state_dict(torch.load("./code/saved_models/seg_model32x100.pth"))
     model_globules.load_state_dict(torch.load("./code/saved_models/globules_seg_model32x100.pth"))
     model_milia_like_cyst.load_state_dict(torch.load("./code/saved_models/milia_like_cyst_seg_model32x100.pth"))
     model_negative_network.load_state_dict(torch.load("./code/saved_models/negative_network_seg_model32x100.pth"))
@@ -80,7 +83,7 @@ if __name__ == "__main__":
             n += 1
 
 
-
+    #output segmentation visuals
     for lst in Images:
         imgs = lst[0]
         labels = lst[1]
@@ -209,35 +212,3 @@ if __name__ == "__main__":
         plt.title("Streaks G.T.") 
 
         plt.show()
-
-
-
-
-
-    # for imgs, labels in iter(train_loader):
-    #     fig, axarr = plt.subplots(nrows=1,ncols=4)
-
-    #     plt.sca(axarr[0]) 
-    #     plt.imshow(imgs.reshape(3, 90, 90).permute(1, 2, 0))
-    #     plt.title("Image")
-
-    #     plt.sca(axarr[1])
-    #     prediction = torch.sigmoid(modelGlobules.forward(imgs))
-    #     prediction = (prediction > 0.5).float()
-    #     pred = np.squeeze(prediction.detach().numpy())
-    #     # plt.imshow(modelA(imgs).squeeze().detach().numpy())
-    #     plt.imshow(pred)
-    #     plt.title("Globule Prediction")
-
-    #     plt.sca(axarr[2])
-    #     prediction = torch.sigmoid(modelB.forward(imgs)) # use tanh instead of sigmoid?
-    #     prediction = (prediction > 0.5).float()
-    #     pred = np.squeeze(prediction.detach().numpy())
-    #     # plt.imshow(modelB(imgs).squeeze().detach().numpy())
-    #     plt.imshow(pred)
-    #     plt.title("Prediction 16x2500")
-
-    #     plt.sca(axarr[3])
-    #     plt.imshow(labels.permute(1, 2, 0))
-    #     plt.title("Ground Truth")
-    #     plt.show()

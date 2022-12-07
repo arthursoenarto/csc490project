@@ -50,15 +50,32 @@ binary segmentation.
 
 ![](https://i.imgur.com/f8iz5Cm.png)
 
+The input data are dermoscopic lesion images in JPEG format. All lesion images are named using the scheme ISIC_<image_id>.jpg. The response data are binary mask images in PNG format. Mask images are named using the scheme ISIC_<image_id>_segmentation.png, where <image_id> matches the corresponding lesion image for the mask.
+
+- 0: representing the background of the image, or areas outside the primary lesion
+- 255: representing the foreground of the image, or areas inside the primary lesion
+
+For training, the image was resized to 90x90 with various transformations applied and normalized such that (0, 255) -> (0, 1).
+
 We first implemented UNet, a convolutional network architecture for fast and precise segmentation of images. U-Net was developed for biomedical image segmentation at the Computer Science Department of the University of Freiburg. The network is a convolutional neural network.
 
 Model: 
 
 ![](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/u-net-architecture.png)
 
+Then, we explored a more advanced version of UNet, the DoubleUNet, which is a combination of two U-Net architectures stacked on top of each other.
+
+![](https://raw.githubusercontent.com/DebeshJha/2020-CBMS-DoubleU-Net/master/img/DoubleU-Net.png)
+
+Finally, we also tried a novel approach of a Triple UNet by combining the output of the single UNet and Double UNet.
 
 
+Since the output images pixels are either 0's (if part of the background) or 1's (if part of the lesion), the two combination approaches we tested:
 
+- Intersection of the predicted lesion regions of the two models using logical and
+- Union of the prediction lesion regions using logical or
+
+![](https://i.imgur.com/OKcfb9V.png)
 
 
 
