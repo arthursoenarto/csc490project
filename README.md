@@ -41,6 +41,30 @@ cd into folder then,
   $ squeue --user=csc490w -t RUNNING # status of running job
 ```
 
+#### How to run/test/debug doubleunet/tripleunet locally:
+
+#### Training (doubleunet_train.py):
+
+under main() at end of file:
+1. change the training images and ground truth file path based on directory structure
+2. change batch_sizes and iter_sizes based on what you want to train on
+3. change file path and name of where you want to store your pretrained models
+
+at the end of def train():
+1. under **if plot:**, change file path and name of where you want to store your loss curve
+
+#### Testing (doubleunet_test.py for DoubleUNet, tripleunet_test.py for TripleUNet)
+under main() at end of file:
+1. change the training images and ground truth file path based on directory structure
+2. change the validation images and ground truth file path based on directory structure
+3. change doubleunet_models and model.load_state_dict() in the for loop to point to where the pretrained doubleunet models are based on directury structure
+4. change unet_model_path to point to where the pretrained singleunet are based on directury structure
+5. under f = open(...) before the for loop: change file path and name to where you want to store your analysis.
+
+optional:
+1. you can skip step no.1 because training takes too long
+
+
 ### Introduction:
 
 This project is an application of different machine learning models that were used for attempting the 2018 ISIC Challenge. 
