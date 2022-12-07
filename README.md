@@ -93,7 +93,7 @@ We had greater validation accuracy with the union of the two masks, so we decide
 #### Metrics
 
 | Segmentation Model  | Accuracy | Dice Score | IOU |
-| ------------- | ------------- | ------------- | ------------- |  ------------- |
+| ------------- | ------------- | ------------- | ------------- | 
 | UNet (batch=100, epoch=500)  | 0.8691 | 0.7385 | 0.6189 |
 | Double UNet (batch=64, epoch=50)  | 0.8590  | 0.7194 | 0.6020 |
 | Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
