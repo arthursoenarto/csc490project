@@ -247,13 +247,15 @@ Gabriel - Attribute detection, data visualization
 Xiaoning - Implemented classification models
 
 ## References
-Skin Cancer - Incidence Rates (2022) https://www.aad.org/media/stats-skin-cancer
-Das. K et al., Machine Learning and Its Application in Skin Cancer (2021) www.ncbi.nlm.nih.gov/pmc/articles/PMC8705277
-Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. (2018).
-O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks for biomedical image segmentation,” (MICCAI), 2015
-Jha. Debesh, et. al. DoubleU-Net: A Deep Convolutional Neural Network for Medical Image Segmentation (2020)
-[He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. 2016 IEEE CONFERENCE ON COMPUTER VISION AND PATTERN RECOGNITION (CVPR), 770–778. https://doi.org/10.1109/CVPR.2016.90
-Sabour, S., Frosst, N., & Hinton, G. E. (2017). Dynamic Routing Between Capsules.
-Z. Lan, S. Cai, X. He and X. Wen, "FixCaps: An Improved Capsules Network for Diagnosis of Skin Cancer," in IEEE Access, vol. 10, pp. 76261-76267, 2022, doi: 10.1109/ACCESS.2022.3181225.
-Li, C., Zhang, D., Tian, Z., Du, S., & Qu, Y. (2020). Few‐shot learning with deformable convolution for multiscale lesion detection in mammography. Medical Physics (Lancaster), 47(7), 2970–2985. https://doi.org/10.1002/mp.14129
+- Skin Cancer - Incidence Rates (2022) https://www.aad.org/media/stats-skin-cancer
+- Das. K et al., Machine Learning and Its Application in Skin Cancer (2021) www.ncbi.nlm.nih.gov/pmc/articles/PMC8705277
+- Tschandl, P., Rosendahl, C. & Kittler, H. The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. (2018).
+- O. Ronneberger, P. Fischer, and T. Brox, “U-net: Convolutional networks for biomedical image segmentation,” (MICCAI), 2015
+- Jha. Debesh, et. al. DoubleU-Net: A Deep Convolutional Neural Network for Medical Image Segmentation (2020)
+- He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. 2016 IEEE CONFERENCE ON COMPUTER VISION AND PATTERN RECOGNITION (CVPR), 770–778. https://doi.org/10.1109/CVPR.2016.90
+- Sabour, S., Frosst, N., & Hinton, G. E. (2017). Dynamic Routing Between Capsules.
+- Z. Lan, S. Cai, X. He and X. Wen, "FixCaps: An Improved Capsules Network for Diagnosis of Skin Cancer," in IEEE Access, vol. 10, pp. 76261-76267, 2022, doi: 10.1109/ACCESS.2022.3181225.
+- Li, C., Zhang, D., Tian, Z., Du, S., & Qu, Y. (2020). Few‐shot learning with deformable convolution for multiscale lesion detection in mammography. Medical Physics (Lancaster), 47(7), 2970–2985. https://doi.org/10.1002/mp.14129
+
+
 
