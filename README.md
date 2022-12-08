@@ -170,11 +170,28 @@ Dataset is severely imbalanced with a lot of blank images and even in the images
 
 ### Classification
 
+As our final task of our work, we tried out different models to do the classification work. We tried different types of models to learn the dataset robustly. 
+
+We first implemented ResNet, a residual network that works very well on classification tasks. However, convolutional networks also have significant drawbacks. Capsule networks are one of the methods to compensate for the shortcomings of CNNs. The critical difference is that there are no max-pooling layers in the network. Instead, the capsule network will have unique components called Capsules. Each capsule represent is a vector that represents the a label and we can use three dense layer to reconstruct the image.
+
+![reconstruction](./code/task2_classification/pictures/reconstruction.png)
 
 
 
+For the best accuracy, we used the FixCap that has the highest accuracy for the dataset. (https://github.com/Woodman718/FixCaps). They used an optimized capsule network:
+
+![fixcap](./code/task2_classification/pictures/fixcap.png)
+
+We also tried with different methods to improve the ResNet for example, replace the regular convolution operation to deformable convolution. The intuition here is that the deformable will have offsets to let the convolution to concentrate on the disease instead of other part of skins. 
+
+![deform_caps](./code/task2_classification/pictures/deform_caps.png)
+
+The final accuray is shown as below, and it turns out our approch is not successful to improve the accuracy. The future work would be validating the novel DeformCaps Network and try in simpler datasets.
+
+![clasfi_result](./code/task2_classification/pictures/clasfi_result.png)
 
 ## Individual Contributions
+
 Arthur - Implemented and trained DoubleUNet, TripleUNet and organized the poster template
 
 Taha - Implemented and trained UNet, data augmentation, gathered metrics
