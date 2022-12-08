@@ -168,6 +168,9 @@ This is a segmentation problem again, so a UNet was selected again to detect the
 
 Dataset is severely imbalanced with a lot of blank images and even in the images where they do appear, the relative sizes of some attributes are small. We decided not to include attributes as a feature for the final task.
 
+The attribute segmentation would have been used alongside the overall segmentation like so:
+![AttributeDetectionVisual](./code/task1_segmentation/AttributeDetectionVisual.png)
+
 ### Classification
 
 There are 7 possible diagnosis categories for a skin lesion sample:
