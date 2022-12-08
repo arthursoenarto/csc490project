@@ -143,8 +143,9 @@ We had greater validation accuracy with the union of the two masks, so we decide
 | Triple UNet (union)  | 0.8712  | 0.7433 | 0.6317 |
 
 ### Attribute Detection
+Similarly to how physicians provided a ground truth mask dataset for our general segmentation training, the isic 2018 dataset also provides ground truth masks for specific attributes.
 
-The following dermoscopic attributes should be identified:
+The following dermoscopic attributes can be identified:
 
 - pigment network
 - negative network
