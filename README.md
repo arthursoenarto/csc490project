@@ -154,7 +154,24 @@ The following dermoscopic attributes should be identified:
 
 The input data are dermoscopic lesion images in JPEG format. All lesion images are named using the scheme ISIC_<image_id>.jpg, where <image_id>. The response data are binary mask images in PNG format, indicating the location of a dermoscopic attribute within each input lesion image. Mask images are named using the scheme ISIC_<image_id>_attribute_<attribute_name>.png, where <image_id> matches the corresponding lesion image for the mask and <attribute_name> identifies a dermoscopic attribute (pigment_network, negative_network, streaks, milia_like_cyst, and globules).
 
-Similarly to the segmentation data, the mask image ground truth pixels are either 0 (indicating areas where attribute is absent) and 255 (where the attribute is present).
+Similarly to the segmentation data, the mask image ground truth pixels are either 0 (indicating areas where attribute is absent) and 255 (where the attribute is present), hence similar transformations to the segmentation task were applied here as well.
+
+This is a segmentation problem again, so a UNet was selected again to detect the attributes.
+
+| Mask Type | Number of Blank Images | % Blank Images | Pixel Ratio |
+| ------------- | ------------- | ------------- | ------------- |
+| Pigment network  | 1992 | 77 | 0.0309 |
+| Negative network  | 1915  | 74 | 0.01272 |
+| Streaks  | 2405  | 93 | 0.0067 |
+| Milia like cyst  | 1072  | 41 | 0.1370 |
+| Globules  | 2494  | 96 | 0.0042 |
+
+Dataset is severely imbalanced with a lot of blank images and even in the images where they do appear, the relative sizes of some attributes are small. We decided not to include attributes as a feature for the final task.
+
+### Classification
+
+
+
 
 
 ## Individual Contributions
