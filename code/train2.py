@@ -72,7 +72,7 @@ def train(model,
             # Save the current training information
             if plot:
                 iters.append(n)
-                losses.append(float(loss)/batch_size)             # compute *average* loss
+                losses.append(float(loss))
 
             # Increment the iteration count
             n += 1
