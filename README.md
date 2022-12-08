@@ -74,6 +74,12 @@ optional:
 1. you can skip step no.1 because training takes too long
 
 
+
+#### Classification
+
+To run the code, follow the python notebook to train the model. Follow the python notebook to get the result. 
+
+
 ### Introduction:
 
 This project is an application of different machine learning models that were used for attempting the 2018 ISIC Challenge. 
