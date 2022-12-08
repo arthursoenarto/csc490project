@@ -176,12 +176,44 @@ Dataset is severely imbalanced with a lot of blank images and even in the images
 
 ### Classification
 
+There are 7 possible diagnosis categories for a skin lesion sample:
+
+- Melanoma
+- Melanocytic nevus
+- Basal cell carcinoma
+- Actinic keratosis / Bowens disease (intraepithelial carcinoma)
+- Benign keratosis (solar lentigo / seborrheic keratosis / lichen planus-like keratosis)
+- Dermatofibroma
+- Vascular lesion
+
+![](https://challenge.isic-archive.com/static/img/landing/2018/task3.png)
+
+The training data is provided as a csv, where each row is a sample containing the attributes as columns: 
+
+- image: an input image identifier of the form ISIC_
+- MEL: "Melanoma" diagnosis confidence
+- NV: "Melanocytic nevus" diagnosis confidence
+- BCC: "Basal cell carcinoma" diagnosis confidence
+- AKIEC: "Actinic keratosis / Bowen's disease (intraepithelial carcinoma)" diagnosis confidence
+- BKL: "Benign keratosis (solar lentigo / seborrheic keratosis / lichen planus-like keratosis)" diagnosis confidence
+- DF: "Dermatofibroma" diagnosis confidence
+- VASC: "Vascular lesion" diagnosis confidence
+
+#### Feature extraction from segmentation
+
+For this task, the segmentation model was first used to produce a predicted mask for the image, which was then overlayed onto the image.
+
+The overlay was applied by multiplying the input image and mask (similar to logical and), where the background region that has a pixel value of 0 when multiplied with the input image would yield 0 and the lesion region that has a pixel value of 1 when multiplied with the input image would yield the input images original pixel value.
+
+Then the classification model was trained on the transformed image.
+
+![](https://i.imgur.com/0HFU37G.png)
+
 As our final task of our work, we tried out different models to do the classification work. We tried different types of models to learn the dataset robustly. 
 
 We first implemented ResNet, a residual network that works very well on classification tasks. However, convolutional networks also have significant drawbacks. Capsule networks are one of the methods to compensate for the shortcomings of CNNs. The critical difference is that there are no max-pooling layers in the network. Instead, the capsule network will have unique components called Capsules. Each capsule represent is a vector that represents the a label and we can use three dense layer to reconstruct the image.
 
 ![reconstruction](./code/task2_classification/pictures/reconstruction.png)
-
 
 
 For the best accuracy, we used the FixCap that has the highest accuracy for the dataset. (https://github.com/Woodman718/FixCaps). They used an optimized capsule network:
@@ -196,8 +228,10 @@ The final accuray is shown as below, and it turns out our approch is not success
 
 ![clasfi_result](./code/task2_classification/pictures/clasfi_result.png)
 
-## Individual Contributions
 
+
+
+## Individual Contributions
 Arthur - Implemented and trained DoubleUNet, TripleUNet and organized the poster template
 
 Taha - Implemented and trained UNet, data augmentation, gathered metrics
